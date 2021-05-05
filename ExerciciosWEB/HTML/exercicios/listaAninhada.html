@@ -1,0 +1,78 @@
+<h1>Projecto</h1>
+<ul class="tree">
+    <li>
+        <span wm-folder > Backend</span>
+        
+        <ul>
+            <li>
+                
+                <span wm-folder >app</span>
+                <ul>
+                    <li>Produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-folder >config</span>
+               
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidores.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder> Frontend</span>
+         
+         <ul>
+             <li>
+                <span wm-folder> Public</span>
+                 
+                 <ul>
+                     <li>app.css</li>
+                     <li>app.js</li>
+                     <li>index.html</li>
+                 </ul>
+             </li>
+         </ul>
+    </li>
+</ul>
+
+<!--Aqui vou colocar um link que vai apontar para um css,
+    e a referencia desse css irei apontar para um URL 
+    que está lá nos arquivos da Coder
+-->
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<script>
+    document.querySelectorAll('[vm-folder]').forEach(folder => {
+        folder.onclick= function(e){
+            debugger
+            console.log('Teste')
+
+        }
+    })
+</script>
+
+
+<!--Notas:
+
+    - O document.querySelector -> vai servir para selecionar todos os elementos que estão marcados com a propriedade
+    personalizada wm-folder.
+
+    - Para eu selecionar elementos que possuam uma determinada propriedade eu coloco "uma String" dentro parenteses.
+
+    - Depois fazer um for each para pegar cada elemento dentro da folder correspondente, e quando eu clicar em cada elemento
+    da lista vai disparar uma função que vai fechar ou abrir os elementos que estão abaixo
+
+    - folder que está dentro do forEach -> que seria cada um das minhas supostas pastas
+
+    - E depois vou fazer um folder.onclick e vou associar uma funcção recebendo um evento;
+ 
+
+
+-->

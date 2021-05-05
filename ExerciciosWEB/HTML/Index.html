@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios HTML</title>
+    <!--Agora aqui dentro do style que já faz parte CSS, irei dar um estilo ao conteudo onde tenho A SECTION com "ID" -->
+    <style>
+        #conteudo{
+            padding: 30px
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercicios HTML</h1>
+        
+    </header>
+    <Nav>
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a> |   <!--Aqui será criada uma pasta com exercicios para se testar de arquivo html de forma a ver varias tags-->
+        <a href wm-nav="exercicios/texto1.html">01 - Texto 1</a> |
+        <a href wm-nav="exercicios/texto2.html">02 - Texto 2</a> |
+        <a href wm-nav="exercicios/listas.html">03 - Listas</a> |
+        <a href wm-nav="exercicios/listaAninhada.html">04 - Lista Aninhada</a> |
+        <a href wm-nav="exercicios/links.html">05 - Links</a> |
+    </Nav>
+    <section id="conteudo"></section> <!--Aqui irá ser preenchida com conteudos apartir do link, isso envolve uma ligação com o javaScript, de forma a clicar no link e receber a informação cinda de outro arquivo para esta section -->
+    <footer>
+        <br>
+        Curso de Web Moderno
+    </footer>
+    <script> 
+       document.querySelectorAll('[wm-nav]').forEach(link =>{
+        const conteudo = document.getElementById('conteudo')
+
+           link.onclick = function(e){
+               e.preventDefault()
+               fetch(link.getAttribute('wm-nav'))
+               .then(resp => resp.text())
+               .then(html => conteudo.innerHTML=html)
+           }
+       })
+    </script>
+</body>
+</html>
+
+
+<!--Notas:
+
+    -Dentro da tag script -> Ai dentro iremos utilizar o js, que iremos com isso interceptar no click no link, que vai gerar 
+    um evento e eu quero interceptar esse click para que eu faça a requisição e não que o browser faça automaticamente a navegação
+    para outra página.
+    Para isso teremos que escrever document... para pegar todos os links... e para selecionar todas as tags tambem, mas neste caso para retornar para mim um Lista de todas essas tags teremos que fazer um for each.
+    Com o forEach, estou a dizer que vou navegar dentro dessa função me dando cada um dos links,
+    Essa função permite que ao clicar no link me mostre na console "Acção";
+
+    A variavel (e) é o evento que voçe recebe do click. 
+    Tem uma opção que é prevenir que o comportamento padrao que é a nvegação corra para outra página.
+
+    -Neste ao clicar no link com essa opção, o navegador já nao vai para outra pagina e vai chamar uma acção.
+
+    Que acção é essa que eu quero fazer quando clicar no link? 
+    - quero que ele faça uma chamada "AJAX", pegue o conteudo da pagina e jogue o conteudo para dentro 
+    da secção relativa ao conteudo.
+
+    - Em outras palavras eu irei ter uma unica pagina que será a pagina "Index" e apartir dos links eu irei pegando outros 
+    conteudos parciais e jogar dentro de uma área que seria relativa ao conteudo
+
+    ----------------------------------------------------------
+
+    - Depois criou se uma variavel const com o nome conteudo recebendo um documento com o obter de um elemento "ID" passando
+    como argumento o valor do "ID".
+    E agora irei fazer um pedido "AJAX" e o resultado dela irei colocar dentro do conteudo.
+    
+    - Para isso irei usar uma função fetch, passando o link que já obtive apartir da estrutura repetitiva (onde estava a percorrer todos os links a partir do resultado querySelectorAll em cima das tags (a))
+    Depois estou fazendo um for Each pegando cada um dos links.
+
+    - A seguir na função fetch, dentro do parenteses dela posso pegar um link onde diz exercicio/teste e agora irei chamar a função "then".
+    - 
+    - Vou retornar a resposta. texto. isto é uma função e não um atributo, serve para pegar o conteudo de HTML da página que eu fiz o pedido.
+    - Só entao depois dessa chamada, que aqui tambem vai retornar um "PROMPT" -> ou seja uma caixa de texto que guarda um valor dentro de uma variavel;
+    - só depois é que eu irei ter acesso ao valor textual que foi carregado apartir desse pedido. E ai 
+    com esse valor textual eu posso jogar dentro do conteudo.
+
+
+    // Resumo:
+
+    - Então:
+
+    1- Associando a cada um dos links uma função que será disparada num click, depois vai prevenir um comportamento padrão,
+       que é navegar, ou seja, com essa opção do prevent o navegador vai ficar parado. Vou ter acesso ao elemento link.  
+
+    2- No caso vou obter o elemento "conteudo" através do elemento getElementId;
+
+    3- A função fetch é feita uma requisição "AJAX" acima do atributo href que me dá o link da pagina.
+
+    4 -Uma vez que a prompt foi resolvida ele chama a função "then" obtendo a resposta.
+     Ou seja, eu chamo a resposta.text chamando uma função que vai retornar outra prompt
+
+-->

@@ -1,0 +1,40 @@
+<h1>Links</h1>
+
+<!--URL Absoluta-->
+<a href="http://www.google.com.br">Google 1</a><br><br>
+<a href="http://www.google.com.br" target="_blank">Google 2</a><br><br> <!--Neste caso vou abrir uma nova abba, ou seja, target é alvo e blank é abba em branco-->
+
+
+<!--URL Relativa-->
+<a href="Index.html">Voltar 1</a><br>
+<a href="/Index.html">Voltar 2</a><br>
+<a href="/../Index.html">Voltar 3</a><br>
+
+
+<!--para enviar mail através do link-->
+
+<a href="mailto:email@empresa.com.br">Entre em contacto</a><br>
+
+
+<!--Agora vamos para o exemplo de âncora, vou colocar CSS inline, o que é isso?
+
+    - CSS Inline -> é vc dentro da tag usando a propriedade style colocar um CSS directamente nela.
+
+    - Isto não é uma boa pratica o caso do CSS Inline, será mesmo só para evitar perder muito tempo.
+
+-->
+
+<!--Agora iremos criar uma div cujo o "ID" é Noticia
+
+    - Depois cria-se um link na mesma pagina mas direcionando para o fundo da pagina
+
+-->
+
+<div id="noticia" style="position:absolute;top:2000px;">
+    <h1>Noticia Bomba!</h1>
+    <p>Não era nada... :)</p>
+</div>
+
+<!--Aqui é criado o link-->
+<a href="#noticia"> Ir para Noticia</a>
+<a href="#inicio">Voltar Inicio</a>
