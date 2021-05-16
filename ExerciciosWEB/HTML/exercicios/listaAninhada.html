@@ -49,10 +49,12 @@
 <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
 
 <script>
-    document.querySelectorAll('[vm-folder]').forEach(folder => {
+    document.querySelectorAll('[wm-folder]').forEach(folder => {
         folder.onclick= function(e){
-            debugger
-            console.log('Teste')
+           const ul= folder.nextElementSibling
+           
+           const d = ul.style.display
+           ul.style.display =d === 'none' ? 'block': 'none'
 
         }
     })
@@ -72,7 +74,12 @@
     - folder que está dentro do forEach -> que seria cada um das minhas supostas pastas
 
     - E depois vou fazer um folder.onclick e vou associar uma funcção recebendo um evento;
- 
 
+
+    - ul.style.display -> isto vai receber uma operação ternaria, se o display for extritamente igual 
+    a 'none' ele vai receber block, ou seja, vou mudar a visibilidade, caso contrario, se ele é visivel entao eu 
+    vou aplicar um 'none' e ele vai ficar invisivel. 
+ 
+    -   ul.style.display =d === none ? 'block': 'none'  -> isto é uma operação ternária e os 2 pontos (:) quer dizer caso contrario.
 
 -->
